@@ -1,0 +1,7 @@
+sur github
+1 mois après la dernière scéance
+mail : louis.cherel@platypus.academy
+en vue.js
+avec authentification
+backend Node.js
+Create / Read / Update / Delete
