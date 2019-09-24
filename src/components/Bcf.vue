@@ -21,7 +21,7 @@
       <v-card-text>I'm card text</v-card-text>
       <v-card-actions v-if="actions">
         <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
+          <v-icon>mdi-arrow-up-box</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -48,7 +48,7 @@
       <v-card-text>I'm card text</v-card-text>
       <v-card-actions v-if="actions">
         <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
+          <v-icon>mdi-arrow-up-box</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
