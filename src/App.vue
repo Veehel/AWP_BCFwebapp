@@ -8,31 +8,23 @@
       <v-spacer></v-spacer>
       <v-btn
         text
-        target="_blank"
+        target="./components/Login"
       >
         <span class="mr-2">sign in</span>
       </v-btn>
-      <v-btn
-        text
-        target="_blank"
-      >
-        <span class="mr-2">sign up</span>
-      </v-btn>
+
     </v-app-bar>
 
     <v-content>
-      <Bcf/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Bcf from './components/Bcf.vue'
-
 export default {
   name: 'App',
   components: {
-    Bcf
   },
   data: () => ({
     //
