@@ -13,7 +13,8 @@
       <v-img
         v-if="media"
         class="white--text"
-        height="1000px"
+        height="auto"
+        width=""
         src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/70504862_783029895486614_6712234972486303744_n.jpg?_nc_cat=105&_nc_oc=AQnprZSpljtXbhIAyjuTQK7snEEtF2HFM_3wf3gJ_WX9YCf41b01zJdUU_9zkzxdK88&_nc_ht=scontent-cdg2-1.xx&oh=f0d457c154850e14133208bcf7575955&oe=5E01C626"
       >
         <v-card-title class="align-end fill-height">I'm a title</v-card-title>
