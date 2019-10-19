@@ -20,7 +20,7 @@ app.use(morgan('dev'))
 app.use(bodyParser.json())
 const path = require('path')
 app.use(express.static(path.join(__dirname, 'dist/')))
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 8080
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })

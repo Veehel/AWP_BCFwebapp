@@ -14,9 +14,9 @@
       label="Username"
       required
       clearable
-      outlined="true"
-      rounded="true"
-      dense="true"
+      outlined
+      rounded
+      dense
     ></v-text-field>
     <v-text-field
       v-model="Password"
@@ -24,9 +24,9 @@
       type='password'
       required
       clearable
-      outlined="true"
-      rounded="true"
-      dense="true"
+      outlined
+      rounded
+      dense
     ></v-text-field>
         </v-col>
     </v-row>
@@ -34,7 +34,7 @@
         <v-col cols="20" sm="2">
     <v-btn
       color=success
-      @click="Login()"
+      v-on:click="Login()"
       block
       rounded
     >
@@ -72,7 +72,7 @@ export default {
         this.show = true
       } else {
         console.log('login request')
-        const login = await this.axios.post('http://localhost:4000/api/login', {
+        const login = await this.axios.post('http://localhost:8080/api/login', {
           username: this.Username,
           password: this.Password
         })
@@ -85,19 +85,11 @@ export default {
         } else {
           console.log('combinaison valide')
           sessionStorage.setItem('session_username', this.Username)
-          this.updateOperation()
           this.$router.push('/Home')
         }
       }
     },
-    async updateOperation () {
-      console.log('Operations of User: ' + this.Username)
-      const operationList = await this.axios.post('http://localhost:4000/api/operationList', {
-        userID: this.Username
-      })
-      sessionStorage.setItem('session_operations', JSON.stringify(operationList.data))
-      console.log('Operation List Updated !')
-    },
+
     async createNewUser () {
       if (this.Password === '' || this.Username === '') {
         console.log('empty')
@@ -106,7 +98,7 @@ export default {
         this.show = true
       } else {
         // server request to know if a user already exist
-        const jsondata = await this.axios.post('http://localhost:4000/api/register', {
+        const jsondata = await this.axios.post('http://localhost:8080/api/register', {
           username: this.Username
         })
         if (!jsondata.data.status) {
@@ -116,7 +108,7 @@ export default {
           this.show = true
         } else {
           // add new user
-          this.axios.post('http://localhost:4000/api/createuser', {
+          this.axios.post('http://localhost:8080/api/createuser', {
             username: this.Username,
             password: this.Password
           })
