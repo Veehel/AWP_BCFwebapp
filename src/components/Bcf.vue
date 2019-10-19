@@ -14,11 +14,7 @@
         v-if="media"
         class="white--text"
         height="auto"
-<<<<<<< HEAD
-        width=""
-=======
         width="auto"
->>>>>>> e421d0222e46b9371dc4230f7609485d94a964f2
         src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/70504862_783029895486614_6712234972486303744_n.jpg?_nc_cat=105&_nc_oc=AQnprZSpljtXbhIAyjuTQK7snEEtF2HFM_3wf3gJ_WX9YCf41b01zJdUU_9zkzxdK88&_nc_ht=scontent-cdg2-1.xx&oh=f0d457c154850e14133208bcf7575955&oe=5E01C626"
       >
       </v-img>
