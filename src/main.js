@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 import Vuerouter from 'vue-router'
 import Bcf from './components/Bcf'
 import Login from './components/Login'
+import Home from './components/Home'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -14,9 +15,10 @@ Vue.use(VueAxios, axios)
 Vue.use(Vuerouter)
 
 const routes = [
-  { path: '/Bcf', component: Bcf, meta: { requiresAuth: false }, name: 'mainpage' },
+  { path: '/Bcf', component: Bcf, meta: { requiresAuth: false } },
   { path: '/', component: Login, meta: { requiresAuth: false } },
-  { path: 'Login', component: Login, meta: { requiresAuth: false }, name: 'login' }
+  { path: '/Home', component: Home, meta: { requiresAuth: true } },
+  { path: '/Login', component: Login, meta: { requiresAuth: false }, name: 'login' }
 ]
 
 const router = new Vuerouter({
