@@ -16,7 +16,7 @@ Vue.use(Vuerouter)
 
 const routes = [
   { path: '/Bcf', component: Bcf, meta: { requiresAuth: false } },
-  { path: '/', component: Login, meta: { requiresAuth: false } },
+  { path: '/', component: Bcf, meta: { requiresAuth: false } },
   { path: '/Home', component: Home, meta: { requiresAuth: true } },
   { path: '/Login', component: Login, meta: { requiresAuth: false }, name: 'login' }
 ]

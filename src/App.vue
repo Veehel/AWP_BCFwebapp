@@ -2,8 +2,8 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>BCF</span>
-        <span class="font-weight-light"> ~ Your tastiest memes</span>
+        <span>BCF </span>
+        <span class="font-weight-light">~ Your tastiest memes</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
