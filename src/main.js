@@ -15,7 +15,7 @@ Vue.use(VueAxios, axios)
 Vue.use(Vuerouter)
 axios.defaults.withCredentials = true
 const routes = [
-  { path: '/Bcf', component: Bcf, meta: { requiresAuth: true } },
+  { path: '/Bcf', component: Bcf, meta: { requiresAuth: false } },
   { path: '/Home', component: Home, meta: { requiresAuth: true } },
   { path: '/', component: Home, meta: { requiresAuth: false } },
   { path: '/Login', component: Login, meta: { requiresAuth: false }, name: 'login' }
