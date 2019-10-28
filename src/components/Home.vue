@@ -1,98 +1,16 @@
 <template>
-    <v-card
-    class="mw-auto overflow-hidden"
-    >
-    <v-app-bar
-        color="grey"
-        dark
-        prominent
-    >
-        <v-app-bar-nav-icon @click,stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
-        <div class="flex-grow-1" ></div>
-    </v-app-bar>
-    <v-navigation-drawer
-        v-model="drawer"
-        absolute
-        bottom
-        temporary
-    >
-    </v-navigation-drawer>
-    <v-list
-        nav
-        dense
-    >
-    <v-list-group
-    v-model="group"
-    ></v-list-group>
-    <v-list-item>
-        <v-list-item-title @click="goToLogin()"> Log In</v-list-item-title>
-    </v-list-item>
-    <v-list-item>
-        <v-list-item-title @click="Logout"> Log Out</v-list-item-title>
-    </v-list-item>
-    </v-list>
-    <div> Welcome {{User}}
-        <v-data-table
-        :headers="headers"
-        :items-per-page="All"
-        class="elevation-1"
-        ></v-data-table>
-    </div>
-    </v-card>
+    <span>
+        <bcf></bcf>
+    </span>
 </template>
 
 <script>
+import Bcf from '@/components/Bcf'
+
 export default {
-  data: () => ({
-    drawer: false,
-    group: null,
-    pageTitle: 'History',
-    headers: [
-      { text: 'Operation ID', value: 'operationID' },
-      { text: 'Operation Name', value: 'operationName' },
-      { text: 'Account ID', value: 'accountID' },
-      { text: 'Type', value: 'type' },
-      { text: 'Amount', value: 'amount' }
-    ],
-    User: sessionStorage.getItem('session_username'),
-    operations: JSON.parse(sessionStorage.getItem('session_operations'))
-  }),
-  watch: {
-    group () {
-      this.drawer = false
-    },
-    operations: JSON.parse(sessionStorage.getItem('session_operations'))
-  },
-  methods: {
-    logout () {
-      // eslint-disable-next-line no-unused-vars
-      this.axios.post('http://localhost:4000/api/logout')
-      console.log('logout')
-      sessionStorage.clear()
-      this.$router.push('/')
-    },
-    async goToAccount () {
-      console.log('Accounts of: ' + this.User)
-      const accountList = await this.axios.post('http://localhost:8080/api/accountList', {
-        user: this.User
-      })
-      sessionStorage.setItem('session_accounts', JSON.stringify(accountList.data))
-      this.$router.push('/Account')
-    },
-    async goToBankOperation () {
-      console.log('Operation Management of: ' + this.User)
-      const operationList = await this.axios.post('http://localhost:8080/api/operationList', {
-        userID: this.User
-      })
-      const accountList = await this.axios.post('http://localhost:8080/api/accountList', {
-        user: this.User
-      })
-      sessionStorage.setItem('session_accounts', JSON.stringify(accountList.data))
-      sessionStorage.setItem('session_operations', JSON.stringify(operationList.data))
-      this.$router.push('/Operation')
-    }
+  name: 'home',
+  components: {
+    Bcf
   }
 }
-
 </script>

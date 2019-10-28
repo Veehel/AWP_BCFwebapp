@@ -1,15 +1,14 @@
 <template>
-  <v-form>
-           <v-alert
-      v-model="show"
-      :dismissible=false
-      :type="msgType"
-    >
-      {{statusMsg}}
-    </v-alert>
-    <v-row>
-        <v-col cols="12" sm="6">
-    <v-text-field
+    <v-container fill-height>
+        <v-layout align-center justify-center>
+            <v-flex xs12 sm8 md4>
+                <v-card class="elevation-12">
+                    <v-toolbar dark color="primary">
+                        <v-toolbar-title>Join Form</v-toolbar-title>
+                    </v-toolbar>
+                    <v-card-text>
+                        <v-form ref="form" v-model="valid" lazy-validation>
+                            <v-text-field
       v-model="Username"
       label="Username"
       required
@@ -28,31 +27,29 @@
       rounded
       dense
     ></v-text-field>
-        </v-col>
-    </v-row>
-    <v-row align="center">
-        <v-col cols="20" sm="2">
-    <v-btn
-      color=success
-      v-on:click="Login()"
-      block
-      rounded
-    >
-      Log in
-    </v-btn>
-        <v-btn
-      color=error
-      block
-      rounded
-      @click="createNewUser"
-    >
-      Register
-    </v-btn>
-        </v-col>
-    </v-row>
-  </v-form>
+                        </v-form>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="primary"
+                            :disabled="!valid"
+                            @click="Login"
+                            >Sign In</v-btn>
+                    </v-card-actions>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="primary"
+                            :disabled="!valid"
+                            @click="createNewUser"
+                            >Sign up</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
-
 <script>
 export default {
   data: () => ({
@@ -72,7 +69,7 @@ export default {
         this.show = true
       } else {
         console.log('login request')
-        const login = await this.axios.post('http://localhost:8080/api/login', {
+        const login = await this.axios.post('http://localhost:4000/api/login', {
           username: this.Username,
           password: this.Password
         })
@@ -84,7 +81,7 @@ export default {
           this.show = true
         } else {
           console.log('combinaison valide')
-          sessionStorage.setItem('session_username', this.Username)
+          sessionStorage.user = JSON.stringify('session_username', this.Username)
           this.$router.push('/Home')
         }
       }
@@ -98,7 +95,7 @@ export default {
         this.show = true
       } else {
         // server request to know if a user already exist
-        const jsondata = await this.axios.post('http://localhost:8080/api/register', {
+        const jsondata = await this.axios.post('http://localhost:4000/api/register', {
           username: this.Username
         })
         if (!jsondata.data.status) {
@@ -108,7 +105,7 @@ export default {
           this.show = true
         } else {
           // add new user
-          this.axios.post('http://localhost:8080/api/createuser', {
+          this.axios.post('http://localhost:4000/api/createuser', {
             username: this.Username,
             password: this.Password
           })

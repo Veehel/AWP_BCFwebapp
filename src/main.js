@@ -13,11 +13,11 @@ import VueAxios from 'vue-axios'
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(Vuerouter)
-
+axios.defaults.withCredentials = true
 const routes = [
-  { path: '/Bcf', component: Bcf, meta: { requiresAuth: false } },
-  { path: '/', component: Login, meta: { requiresAuth: false } },
+  { path: '/Bcf', component: Bcf, meta: { requiresAuth: true } },
   { path: '/Home', component: Home, meta: { requiresAuth: true } },
+  { path: '/', component: Home, meta: { requiresAuth: false } },
   { path: '/Login', component: Login, meta: { requiresAuth: false }, name: 'login' }
 ]
 
