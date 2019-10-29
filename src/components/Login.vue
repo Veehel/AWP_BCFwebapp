@@ -4,29 +4,31 @@
             <v-flex xs12 sm8 md4>
                 <v-card class="elevation-12">
                     <v-toolbar dark color="primary">
-                        <v-toolbar-title>Join Form</v-toolbar-title>
+                        <v-toolbar-title>Sign In Form</v-toolbar-title>
                     </v-toolbar>
                     <v-card-text>
                         <v-form ref="form" v-model="valid" lazy-validation>
-                            <v-text-field
-      v-model="Username"
-      label="Username"
-      required
-      clearable
-      outlined
-      rounded
-      dense
-    ></v-text-field>
-    <v-text-field
-      v-model="Password"
-      label="Password"
-      type='password'
-      required
-      clearable
-      outlined
-      rounded
-      dense
-    ></v-text-field>
+                          <v-text-field
+                            v-model="Username"
+                            label="Username"
+                            required
+                            clearable
+                            outlined
+                            rounded
+                            dense
+                            >
+                          </v-text-field>
+                          <v-text-field
+                            v-model="Password"
+                            label="Password"
+                            type='password'
+                            required
+                            clearable
+                            outlied
+                            rounded
+                            dense
+                          >
+                          </v-text-field>
                         </v-form>
                     </v-card-text>
                     <v-card-actions>
@@ -76,13 +78,13 @@ export default {
         })
         console.log(login.data.status)
         if (!login.data.status) {
-          console.log('combinaison non valide')
+          console.log('password or username invalid')
           this.msgType = 'error'
-          this.statusMsg = 'Incorrect Username or Password !'
+          this.statusMsg = 'Username or Password invalid !'
           this.show = true
         } else {
-          console.log('combinaison valide')
-          sessionStorage.user = JSON.stringify('session_username', this.Username)
+          console.log('valid entry')
+          sessionStorage.setItem('session_username', this.Username)
           this.$router.push('/Home')
         }
       }
