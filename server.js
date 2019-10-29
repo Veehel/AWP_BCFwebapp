@@ -48,7 +48,7 @@ app.post('/api/login', (req, res) => {
         message: 'username or password invalid'
       })
     } else {
-      req.session.userId = 1000 // connect the user, and change the id
+      req.session.userId = Math.floor((Math.random() * 1000) + 1) // connect the user, and change the id
       console.log('UserId: ' + req.session.userId)
       res.json({
         status: true,
@@ -63,10 +63,17 @@ app.post('/api/login', (req, res) => {
   }
 })
 
-app.get('/api/logout', (req, res) => {
-  req.session.destroy()
-  if (!req.session) {
-    console.log('You have been disconnected')
+app.post('/api/logout', (req, res) => {
+  if (!req.session.userId) {
+    res.status(401)
+    res.json({
+      message: 'you are already disconnected'
+    })
+  } else {
+    req.session.userId = 0
+    res.json({
+      message: 'you are now disconnected'
+    })
   }
 })
 

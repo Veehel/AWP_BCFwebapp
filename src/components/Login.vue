@@ -58,7 +58,8 @@ export default {
     show: false,
     msgType: 'error',
     statusMsg: '',
-    loginGranted: false
+    loginGranted: false,
+    valid: false
   }),
   methods: {
     async Login () {
@@ -120,3 +121,8 @@ export default {
   }
 }
 </script>
+<style>
+  .input-group__details:after {
+    background-color: rgba(255, 255, 255, 0.32) !important;
+  }
+</style>

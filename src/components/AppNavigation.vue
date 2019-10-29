@@ -22,10 +22,11 @@ export default {
     drawer: false
   }),
   methods: {
-    async logout () {
-      this.axios.post('/api/logout')
-      console.log('log out')
+    logout () {
+      this.axios.post('http://localhost:4000/api/logout')
+      sessionStorage.clear()
       this.$router.push('/')
+      console.log('log out')
     }
   }
 }
@@ -35,5 +36,8 @@ export default {
 a {
     color: white;
     text-decoration: none;
+}
+.input_group_details::after {
+  background-color: rgba(255, 255, 255, 0.32) !important
 }
 </style>

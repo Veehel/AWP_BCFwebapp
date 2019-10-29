@@ -6,6 +6,7 @@ import Vuerouter from 'vue-router'
 import Bcf from './components/Bcf'
 import Login from './components/Login'
 import Home from './components/Home'
+import About from './components/About'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -17,8 +18,9 @@ axios.defaults.withCredentials = true
 const routes = [
   { path: '/Bcf', component: Bcf, meta: { requiresAuth: false } },
   { path: '/Home', component: Home, meta: { requiresAuth: true } },
-  { path: '/', component: Home, meta: { requiresAuth: false } },
-  { path: '/Login', component: Login, meta: { requiresAuth: false }, name: 'login' }
+  { path: '/', component: Home, meta: { requiresAuth: true } },
+  { path: '/Login', component: Login, meta: { requiresAuth: false }, name: 'login' },
+  { path: '/About', component: About, meta: { requiresAuth: false } }
 ]
 
 const router = new Vuerouter({
