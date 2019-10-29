@@ -24,7 +24,6 @@
           <v-card-text>{{ meme.title }}</v-card-text>
           <v-divider></v-divider>
           <v-card-actions v-if='actions'>
-          <v-card-actions v-if="actions">
             <v-btn icon>
               <v-icon>mdi-arrow-up-box</v-icon>
             </v-btn>
