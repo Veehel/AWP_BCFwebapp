@@ -45,6 +45,7 @@
               type="text"
               v-on:keyup.enter="addComment"
             ></v-text-field>
+            &nbsp;
             <v-btn
               @click="addComment"
               color="brown"

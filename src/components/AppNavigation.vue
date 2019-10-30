@@ -9,6 +9,7 @@
             <v-btn text class="hidden-sm-and-down" to= '/About'>About us</v-btn>
             <v-spacer class='hidden-sm-and-down'></v-spacer>
             <v-btn class='hidden-sm-and-down' color="brown ligten-3" to= '/Login'>SIGN IN/SIGN UP</v-btn>
+            &nbsp;
             <v-btn  color="brown darken-1" class='hidden-sm-and-down' @click="logout">Log out</v-btn>
         </v-app-bar>
         <v-navigation-drawer app  v-model="drawer" color="brown darken-2">
