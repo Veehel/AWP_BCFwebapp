@@ -43,7 +43,6 @@
               maxlength='240'
               single-line
               type="text"
-              v-model="comment"
               v-on:keyup.enter="addComment"
             ></v-text-field>
             <v-btn
