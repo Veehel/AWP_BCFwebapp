@@ -1,5 +1,5 @@
 <template>
- <v-card-text>HELLO</v-card-text>
+ <v-card-text>It is actually just a website to show some memes</v-card-text>
 </template>
 
 <script>
