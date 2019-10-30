@@ -43,7 +43,7 @@ export default {
   }),
   methods: {
     logout () {
-      this.axios.post('http://localhost:4000/api/logout')
+      this.axios.post('/api/logout')
       sessionStorage.clear()
       this.$router.push('/')
       console.log('log out')
